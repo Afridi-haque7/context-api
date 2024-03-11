@@ -1,25 +1,51 @@
-import logo from './logo.svg';
+import { useContext } from 'react';
 import './App.css';
+import Counter from './components/Counter';
+import { CounterContext } from './context/Counter';
+import Item from './components/Item';
+import Cart from './components/Cart';
 
 function App() {
+
+  const counterState = useContext(CounterContext);
+  console.log("Context", counterState);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <h1>Count is {counterState.count}</h1>
+      <Counter/>
+      <Counter/>
+      <Counter/>
+      <Counter/> */}
+      <div className="item-list">
+        <Item
+          name="iPhone 15"
+          price={700}
+        />
+        <Item
+          name="iPhone 15 Pro"
+          price={990}
+        />
+        <Item
+          name="Samsung S24"
+          price={700}
+        />
+        <Item
+          name="Samsung S24 Ultra"
+          price={900}
+        />
+        <Item
+          name="Macbook Air"
+          price={900}
+        />
+        <Item
+          name="iPhone 15+"
+          price={800}
+        />
+      </div>
+
+      <Cart/>
     </div>
   );
-}
+};
 
 export default App;
